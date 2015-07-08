@@ -37,8 +37,6 @@
                 {!! Form::submit('Login', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'login', 'name' => 'login']) !!}
             </div>
 
-
-
             {!! Form::close() !!}
         </div>
     </div>
