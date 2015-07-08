@@ -13,39 +13,38 @@
         {!! Form::open()!!}
 
             <!-- firstname Textfield-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo ">
-                {!! Form::text('firstname', null, ['class' => 'mdl-textfield__input']) !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::text('firstname', null, ['class' => 'mdl-textfield__input', 'id' => 'firstname']) !!}
                 {!! Form::label('firstname', 'Vorname', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
             <!-- lastname Textfield-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                {!! Form::text('lastname', null, ['class' => 'mdl-textfield__input']) !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::text('lastname', null, ['class' => 'mdl-textfield__input', 'id' => 'lastname']) !!}
                 {!! Form::label('lastname', 'Name', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
             <!-- email Textfield-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                {!! Form::email('email', null, ['class' => 'mdl-textfield__input']) !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::email('email', null, ['class' => 'mdl-textfield__input', 'id' => 'email']) !!}
                 {!! Form::label('email', 'E-Mail', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
             <!-- password Textfield-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                {!! Form::password('password', null, ['class' => 'mdl-textfield__input']) !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::password('password', ['class' => 'mdl-textfield__input', 'id' => 'password']) !!}
                 {!! Form::label('password', 'Passwort', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
             <!-- password_confirmation Textfield-->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                {!! Form::password('password_confirmation', null, ['class' => 'mdl-textfield__input']) !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::password('password_confirmation', ['class' => 'mdl-textfield__input', 'id' => 'password_confirmation']) !!}
                 {!! Form::label('password_confirmation', 'Passwort bestätigen', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
-
-            <!-- Registrieren Form Input -->
+            <!-- register Submit Button -->
             <div class="form-group">
-                {!! Form::submit('Registrieren', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent']) !!}
+                {!! Form::submit('Registrieren', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'register', 'name' => 'register']) !!}
             </div>
         {!! Form::close() !!}
         </div>
