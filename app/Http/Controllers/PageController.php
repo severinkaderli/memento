@@ -19,11 +19,12 @@ class PageController extends Controller
         //
     }
 
-    public function home() {
-        $data = [];
-        $data['user'] = \Auth::user();
+    public function home(Request $request) {
+        if(!$request->user()) {
+            return redirect('register');
+        }
 
-        return view('pages.home', $data);
+        return view('pages.home');
     }
 
     public function about() {

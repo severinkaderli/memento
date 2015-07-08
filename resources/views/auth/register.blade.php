@@ -7,7 +7,7 @@
 @section('content')
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
         <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">Registrieren</h2>
+            <h2 class="mdl-card__title-text">Register</h2>
         </div>
         <div class="mdl-card__supporting-text">
         {!! Form::open()!!}
@@ -28,6 +28,7 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::email('email', null, ['class' => 'mdl-textfield__input', 'id' => 'email']) !!}
                 {!! Form::label('email', 'E-Mail', ['class' => 'mdl-textfield__label']) !!}
+                <span class="mdl-textfield__error">Not a valid email address!</span>
             </div>
 
             <!-- password Textfield-->
@@ -42,19 +43,29 @@
                 {!! Form::label('password_confirmation', 'Passwort bestätigen', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
+            <div>&nbsp;</div>
+
             <!-- register Submit Button -->
             <div class="form-group">
-                {!! Form::submit('Registrieren', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'register', 'name' => 'register']) !!}
+                {!! Form::submit('Register', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'register', 'name' => 'register']) !!}
             </div>
         {!! Form::close() !!}
         </div>
     </div>
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
         <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">What is flashcards?</h2>
+            <h2 class="mdl-card__title-text">What is memento?</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+            <p><strong><i>memento</i></strong> is a simple to use flashcard application in web. It comes in beautiful Material Design.</p>
+            <p>
+               <strong>Features:</strong>
+                <ul>
+                    <li>Learning with flashcards</li>
+                    <li>CSV Import</li>
+                    <li>CSV Export</li>
+                 </ul>
+            </p>
         </div>
     </div>
 
