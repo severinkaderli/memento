@@ -27,8 +27,15 @@ class CardpacksController extends Controller
         return view('cardpacks.create');
     }
 
+    /**
+     * Creates a new cardpack
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store() {
-        Cardpack::create(Request::all());
+
+        $cardpack = new Cardpack(Request::all());
+        Auth::user() -> cardpacks() -> save($cardpack);
         return redirect('cardpacks');
     }
 }

@@ -12,11 +12,11 @@
 */
 
 //Registration
-Route::get('register', 'Auth\AuthController@getRegister');
+Route::get('register', 'PageController@home');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 //Authentication
-Route::get('login', 'Auth\AuthController@getLogin');
+Route::get('login', 'PageController@home');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
 

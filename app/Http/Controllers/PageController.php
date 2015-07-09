@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -10,12 +10,12 @@ use App\Http\Controllers\Controller;
 class PageController extends Controller {
 
 
-    public function home(Request $request) {
-        if(!$request->user()) {
-            return redirect('register');
-        } else {
+    public function home() {
+        if(Request::user()) {
             return redirect('cardpacks');
         }
+
+        return view('pages.home');
     }
 
     public function about() {
