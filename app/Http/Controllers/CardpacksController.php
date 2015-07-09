@@ -13,6 +13,10 @@ class CardpacksController extends Controller
 {
 
     public function index() {
+        if(!Request::user()) {
+            return redirect('/');
+        }
+
         $cardpacks = Auth::user() -> cardpacks() -> latest() -> get();
         return view('cardpacks.index', compact('cardpacks'));
     }
@@ -23,7 +27,10 @@ class CardpacksController extends Controller
     }
 
     public function create() {
-
+        if(!Request::user()) {
+            return redirect('/');
+        }
+        
         return view('cardpacks.create');
     }
 

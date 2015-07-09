@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 07. Jul 2015 um 21:48
+-- Erstellungszeit: 09. Jul 2015 um 20:21
 -- Server-Version: 5.6.24
 -- PHP-Version: 5.6.8
 
@@ -33,7 +33,15 @@ CREATE TABLE IF NOT EXISTS `cardpacks` (
   `user_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Daten für Tabelle `cardpacks`
+--
+
+INSERT INTO `cardpacks` (`id`, `title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'English Words', 'Collection of difficult english word', 1, '2015-07-09 16:16:54', '2015-07-09 16:16:54'),
+(2, 'SQL Commands', 'SELECT, INSERT and so on..', 1, '2015-07-09 16:21:01', '2015-07-09 16:21:01');
 
 -- --------------------------------------------------------
 
@@ -105,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'severin', 'kaderli', 'severin.kaderli@gmail.com', '$2y$10$i1SQeS6Q/8KG78BTS1CGRulkfQRYt65dzLwel41bBpkwhZ.xaEjBG', 'ASi8C5lffrGjtjvUMoULHBG4YcAR6EuMLlxgW30MGo8m3La59HLh3mLN7V5e', '2015-07-05 14:12:26', '2015-07-07 17:39:19');
+(1, 'Severin', 'Kaderli', 'severin.kaderli@gmail.com', '$2y$10$7iCBZo29UC6E32WsE/PpCuyeerqhlqD3i6z8RJmAP/kq3LCt9eb/y', NULL, '2015-07-09 16:16:39', '2015-07-09 16:16:39');
 
 --
 -- Indizes der exportierten Tabellen
@@ -143,7 +151,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `cardpacks`
 --
 ALTER TABLE `cardpacks`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT für Tabelle `cards`
 --
@@ -162,7 +170,7 @@ ALTER TABLE `users`
 -- Constraints der Tabelle `cardpacks`
 --
 ALTER TABLE `cardpacks`
-ADD CONSTRAINT `cardpacks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+ADD CONSTRAINT `cardpacks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints der Tabelle `cards`
