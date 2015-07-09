@@ -9,8 +9,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!--CSS here -->
-        <link rel="stylesheet" type="text/css" href="css/material.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="{{URL::asset('css/material.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{URL::asset('css/styles.css')}}">
     </head>
     <body>
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -32,16 +32,16 @@
             </header>
             <!-- Header END -->
             <!-- Navigation START -->
-            <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-                <header class="demo-drawer-header">
+            <div class="drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+                <header class="drawer-header">
                     @if(Auth::check())
-                    <img src="images/user.jpg" class="demo-avatar">
+                    <img src="http://gravatar.com/avatar/{{md5(strtolower(trim(Auth::user() -> email)))}}s=100" class="demo-avatar">
                     @else
-                        <img src="images/user.jpg" class="demo-avatar">
+                        <img src="http://gravatar.com/avatar/000" class="demo-avatar">
                     @endif
-                    <div class="demo-avatar-dropdown">
+                    <div class="drawer-email">
                         @if(Auth::check())
-                        <span>{{Auth::user() -> email}}</span>
+                            {{Auth::user() -> email}}
                         @endif
                     </div>
                 </header>
