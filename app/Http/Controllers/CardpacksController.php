@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cardpack;
@@ -12,7 +13,7 @@ class CardpacksController extends Controller
 {
 
     public function index() {
-        $cardpacks = Cardpack::latest() -> get();
+        $cardpacks = Auth::user() -> cardpacks() -> latest() -> get();
         return view('cardpacks.index', compact('cardpacks'));
     }
 

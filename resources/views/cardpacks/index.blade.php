@@ -1,12 +1,36 @@
 @extends('app')
 
 @section('title')
-    Cardpack - Overview
+    Cardpacks
 @stop
 
 @section('content')
-    <h1>Cardpacks</h1>
-    @foreach($cardpacks as $pack)
-        Pack: {{ $pack->title }} <br>
-    @endforeach
+    <!-- create cardpack button -->
+    <a href="{{url('cardpacks/create')}}">
+        <button class="createCardpack mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+           <i class="material-icons">add</i>
+        </button>
+    </a>
+    @forelse($cardpacks as $pack)
+        <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">{{ $pack -> title }}</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                {{ $pack -> description }}
+            </div>
+            <button id="cardpackMenuButton{{$pack -> id}}" class="card-menu-button mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+            </button>
+
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                for="cardpackMenuButton{{$pack -> id}}">
+                <li class="mdl-menu__item">Rename</li>
+                <li class="mdl-menu__item">Delete</li>
+                <li class="mdl-menu__item">Export as .csv</li>
+            </ul>
+        </div>
+    @empty
+        <p>You have no cardpacks yet. Create your first now.</p>
+    @endforelse
 @stop

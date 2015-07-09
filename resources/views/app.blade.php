@@ -48,13 +48,15 @@
                 <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
                     @if(!Auth::check())
                         <a class="mdl-navigation__link" href="{{url('register')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Register</a>
-                    <a class="mdl-navigation__link" href="{{url('login')}}"><i class="mdl-color-text--blue-grey-400 material-icons">perm_identity</i>Login</a>
+                        <a class="mdl-navigation__link" href="{{url('login')}}"><i class="mdl-color-text--blue-grey-400 material-icons">perm_identity</i>Login</a>
 
                     @else
-                        <a class="mdl-navigation__link" href="{{url('/')}}"><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
-                    <a class="mdl-navigation__link" href="{{url('cardpacks')}}"><i class="mdl-color-text--blue-grey-400 material-icons">dashboard</i>Cardpacks</a>
-                    <a class="mdl-navigation__link" href="{{url('logout')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Logout</a>
+                        <a class="mdl-navigation__link" href="{{url('cardpacks')}}"><i class="mdl-color-text--blue-grey-400 material-icons">dashboard</i>Cardpacks</a>
+                        <a class="mdl-navigation__link" href="{{url('logout')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Logout</a>
                     @endif
+                        <div class="mdl-layout-spacer"></div>
+                        <a class="mdl-navigation__link" href="{{url('about')}}"><i class="mdl-color-text--blue-grey-400 material-icons">perm_identity</i>About</a>
+                        <a class="mdl-navigation__link" href="{{url('contact')}}"><i class="mdl-color-text--blue-grey-400 material-icons">perm_identity</i>Contact</a>
                 </nav>
             </div>
             <!-- Navigation END -->

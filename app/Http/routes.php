@@ -20,11 +20,11 @@ Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
 
-
 //Static pages
 Route::get('/', "PageController@home");
 Route::get('home', "PageController@home");
 Route::get('about', "PageController@about");
+Route::get('contact', "PageController@contact");
 
 //Cardpacks
 Route::get('cardpacks', "CardpacksController@index");
