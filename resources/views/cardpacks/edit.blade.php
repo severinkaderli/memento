@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-    Cardpacks - Create
+    Cardpacks - Edit
 @stop
 
 @section('content')
@@ -11,9 +11,9 @@
         </div>
         <div class="mdl-card__supporting-text">
             @include('errors._list')
-            {!! Form::open(['url' => 'cardpacks']) !!}
+            {!! Form::model($cardpack, ['method' => 'PATCH', 'action' => ['CardpacksController@update', $cardpack -> id]]) !!}
 
-            @include('cardpacks._form', ['buttonLabel' => 'Create cardpack'])
+            @include('cardpacks._form', ['buttonLabel' => 'Edit cardpack'])
 
             {!! Form::close() !!}
         </div>

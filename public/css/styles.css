@@ -84,6 +84,10 @@ html, body {
     text-align: center;
 }
 
+.mdl-menu a {
+    text-decoration: none;
+}
+
 .demo-navigation {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;

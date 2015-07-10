@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-    Cardpacks
+    Cardpacks - Overview
 @stop
 
 @section('content')
@@ -25,7 +25,7 @@
 
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                 for="cardpackMenuButton{{$pack -> id}}">
-                <li class="mdl-menu__item">Rename</li>
+                <a href="{{url('cardpacks/' . $pack -> id . '/edit')}}"><li class="mdl-menu__item">Edit</li></a>
                 <li class="mdl-menu__item">Delete</li>
                 <li class="mdl-menu__item">Export as .csv</li>
             </ul>
