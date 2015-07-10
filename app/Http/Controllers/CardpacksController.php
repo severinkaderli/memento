@@ -84,4 +84,14 @@ class CardpacksController extends Controller
 
         return redirect('cardpacks');
     }
+
+    public function destroy($id) {
+        $cardpack = Cardpack::findOrFail($id);
+        if($cardpack -> user -> id != Auth::id()) {
+            return redirect('cardpacks');
+        }
+        $cardpack -> delete();
+
+        return redirect('cardpacks');
+    }
 }

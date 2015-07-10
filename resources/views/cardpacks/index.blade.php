@@ -26,7 +26,7 @@
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                 for="cardpackMenuButton{{$pack -> id}}">
                 <a href="{{url('cardpacks/' . $pack -> id . '/edit')}}"><li class="mdl-menu__item">Edit</li></a>
-                <li class="mdl-menu__item">Delete</li>
+                <a href="{{url('cardpacks/' . $pack -> id)}}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?"><li class="mdl-menu__item">Delete</li></a>
                 <li class="mdl-menu__item">Export as .csv</li>
             </ul>
         </div>

@@ -27,13 +27,6 @@ Route::get('about', "PageController@about");
 Route::get('contact', "PageController@contact");
 
 //Cardpacks
-/*Route::get('cardpacks', "CardpacksController@index");
-Route::get('cardpacks/create', 'CardpacksController@create');
-Route::get('cardpacks/{id}', "CardpacksController@show");
-Route::post('cardpacks', 'CardpacksController@store');
-Route::get('cardpacks/{id}/edit', 'CardpacksController@edit');
-Route::get('cardpacks/{id}/delete', 'CardpacksController@delete');*/
-
 Route::resource("cardpacks", "CardpacksController");
 
 
