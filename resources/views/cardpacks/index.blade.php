@@ -7,7 +7,7 @@
 @section('content')
     <!-- create cardpack button -->
     <a href="{{url('cardpacks/create')}}">
-        <button class="createCardpack mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <button class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
            <i class="material-icons">add</i>
         </button>
     </a>
@@ -27,7 +27,7 @@
                 for="cardpackMenuButton{{$pack -> id}}">
                 <a href="{{url('cardpacks/' . $pack -> id . '/edit')}}"><li class="mdl-menu__item">Edit</li></a>
                 <a href="{{url('cardpacks/' . $pack -> id)}}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?"><li class="mdl-menu__item">Delete</li></a>
-                <li class="mdl-menu__item">Export as .csv</li>
+                <a target="_blank" href="{{url('cardpacks/' . $pack -> id . '/export')}}"><li class="mdl-menu__item">Export as CSV</li></a>
             </ul>
         </div>
     @empty

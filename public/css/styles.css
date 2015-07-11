@@ -25,12 +25,13 @@ html, body {
     z-index: 99;
 }
 
-.createCardpack {
+.fab {
     position: fixed;
     bottom: 17px;
     right: 17px;
     z-index: 100;
 }
+
 
 
 .demo-avatar {
@@ -86,6 +87,10 @@ html, body {
 
 .mdl-menu a {
     text-decoration: none;
+}
+
+.mdl-data-table th:first-of-type {
+    text-align:left;
 }
 
 .demo-navigation {

@@ -14,4 +14,8 @@ class Cardpack extends Model {
     public function user() {
         return $this -> belongsTo('App\User');
     }
+
+    public function cards() {
+        return $this -> hasMany('App\Card');
+    }
 }

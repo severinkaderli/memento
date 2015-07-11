@@ -33,7 +33,8 @@ class CardpacksController extends Controller
         if($cardpack -> user -> id != Auth::id()) {
             return redirect('cardpacks');
         }
-        return $cardpack;
+
+        return view('cardpacks.show', compact('cardpack'));
     }
 
     /**
@@ -85,6 +86,10 @@ class CardpacksController extends Controller
         return redirect('cardpacks');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id) {
         $cardpack = Cardpack::findOrFail($id);
         if($cardpack -> user -> id != Auth::id()) {
@@ -92,6 +97,19 @@ class CardpacksController extends Controller
         }
         $cardpack -> delete();
 
+        return redirect('cardpacks');
+    }
+
+    /**
+     * @param $id
+     */
+    public function export($id){
+        $cardpack = Cardpack::findOrFail($id);
+        if($cardpack -> user -> id != Auth::id()) {
+            return redirect('cardpacks');
+        }
+
+        return $cardpack;
         return redirect('cardpacks');
     }
 }

@@ -71,5 +71,9 @@
         <script src="{{ URL::asset('js/jquery-2.1.4.min.js')}}"></script>
         <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
         <script src="{{ URL::asset('js/rest_delete.js') }}"></script>
+        <script src="{{ URL::asset('js/autosize.min.js') }}"></script>
+        <script>
+            autosize($('textarea'));
+        </script>
     </body>
 </html>
