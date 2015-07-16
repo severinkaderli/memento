@@ -11,22 +11,24 @@
             <i class="material-icons">play_arrow</i>
         </button>
     </a>
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell mdl-cell--12-col mdl-shadow--2dp full-width">
-        <thead>
-        <tr>
-            <th class="mdl-data-table__cell--non-numeric">Frontside</th>
-            <th class="mdl-data-table__cell--non-numeric">Backside</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($cardpack -> cards as $card)
+    <div class="table-wrapper">
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell mdl-cell--12-col mdl-shadow--2dp full-width">
+            <thead>
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">{{$card -> frontside}}</td>
-                <td class="mdl-data-table__cell--non-numeric">{{$card -> backside}}</td>
+                <th class="mdl-data-table__cell--non-numeric">Frontside</th>
+                <th class="mdl-data-table__cell--non-numeric">Backside</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($cardpack -> cards as $card)
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">{{$card -> frontside}}</td>
+                    <td class="mdl-data-table__cell--non-numeric">{{$card -> backside}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <!-- Create card form -->
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">

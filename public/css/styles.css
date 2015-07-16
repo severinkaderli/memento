@@ -32,7 +32,11 @@ html, body {
     z-index: 100;
 }
 
-
+.table-wrapper {
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+}
 
 .demo-avatar {
     width: 100px;
