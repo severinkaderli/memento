@@ -30,12 +30,17 @@ html, body {
     bottom: 17px;
     right: 17px;
     z-index: 100;
+
+}
+
+.demo-content {
+    padding-bottom: 75px;
 }
 
 .table-wrapper {
     overflow-x: auto;
-    display: block;
     width: 100%;
+    max-width: 100%;
 }
 
 .demo-avatar {
