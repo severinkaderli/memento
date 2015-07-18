@@ -29,6 +29,7 @@ Route::get('contact', "PageController@contact");
 //Cardpacks
 Route::resource("cardpacks", "CardpacksController");
 Route::get("cardpacks/{cardpack}/export", "CardpacksController@export");
+Route::post("cardpacks/{cardpack}/cards", "CardsController@store");
 
 
 

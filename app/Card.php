@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
-    protected $fillbable = ['frontside', 'backside'];
+    protected $fillable = ['frontside', 'backside'];
 
     public function cardpack() {
         return $this -> belongsTo('App\Cardpack');

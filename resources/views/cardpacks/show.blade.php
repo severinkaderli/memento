@@ -36,7 +36,7 @@
             <h2 class="mdl-card__title-text">Create new card</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            {!! Form::open(['url' => 'cardpacks']) !!}
+            {!! Form::open(['action' => ['CardsController@store', $cardpack -> id]]) !!}
             <!-- frontside Inputfield -->
             <div class="mdl-textfield left mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::textarea('frontside', null, ['class' => 'mdl-textfield__input', 'id' => 'frontside', 'rows' => '1']) !!}
