@@ -31,7 +31,7 @@
     </div>
 
     <!-- Create card form -->
-    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Create new card</h2>
         </div>
@@ -52,6 +52,16 @@
             <div class="form-group">
                 {!! Form::submit('Create Card', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'addCardpack', 'name' => 'addCardpack']) !!}
             </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Import from CSV-File</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            {!! Form::open(['action' => ['CardsController@import', $cardpack -> id]]) !!}
+
             {!! Form::close() !!}
         </div>
     </div>
