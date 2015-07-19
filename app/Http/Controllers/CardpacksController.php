@@ -8,6 +8,7 @@ use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cardpack;
+use App\Card;
 
 class CardpacksController extends Controller
 {
@@ -111,5 +112,21 @@ class CardpacksController extends Controller
 
         return $cardpack;
         return redirect('cardpacks');
+    }
+
+    public function learn($id){
+        $cardpack = Cardpack::findOrFail($id);
+        if($cardpack -> user -> id != Auth::id()) {
+            return redirect('cardpacks');
+        }
+
+        $testarray = [10];
+        //Get random cards
+        $card = Card::orderByRaw("RAND()")
+                -> where('cardpack_id', $id)
+                -> whereNotIn('id', $testarray)
+                -> get();
+
+        return $card;
     }
 }

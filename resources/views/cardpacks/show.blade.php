@@ -8,7 +8,7 @@
     <!-- play cardpack button -->
     <a href="{{url('cardpacks/create')}}">
         <button class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">play_arrow</i>
+            <i class="material-icons">delete</i>
         </button>
     </a>
     <div class="table-wrapper">
