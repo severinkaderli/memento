@@ -19,7 +19,7 @@
             <div class="mdl-card__supporting-text">
                 {{ $pack -> description }}
             </div>
-
+            <div class="mdl-layout-spacer"></div>
             <div class="mdl-card__actions mdl-card--border">
                 <a href="{{url('cardpacks/' . $pack -> id . '/learn')}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Learn</a>
                 <a href="{{url('cardpacks/' . $pack -> id)}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Edit Cards</a>

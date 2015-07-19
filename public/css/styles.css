@@ -25,10 +25,6 @@ html, body {
     z-index: 99;
 }
 
-.mdl-card {
-    min-height: 0;
-}
-
 .fab {
     position: fixed;
     bottom: 17px;
