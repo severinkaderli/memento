@@ -111,7 +111,6 @@ class CardpacksController extends Controller
         }
 
         return $cardpack;
-        return redirect('cardpacks');
     }
 
     public function learn($id){
@@ -120,13 +119,27 @@ class CardpacksController extends Controller
             return redirect('cardpacks');
         }
 
-        $testarray = [10];
+        if(isset($_REQUEST["finished"])) {
+            $finished = explode(',', $_REQUEST["finished"]);
+        } else {
+            $finished = [0];
+        }
+
+        if(isset($_REQUEST['card_id'])) {
+            array_push($finished, $_REQUEST['card_id']);
+        }
         //Get random cards
         $card = Card::orderByRaw("RAND()")
                 -> where('cardpack_id', $id)
-                -> whereNotIn('id', $testarray)
+                -> whereNotIn('id', $finished)
+                -> limit(1)
                 -> get();
 
-        return $card;
+        //Check if there are any card left
+        if(count($card) == 0) {
+            return redirect('cardpacks');
+        }
+
+        return view('cardpacks.learn', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished]);
     }
 }
