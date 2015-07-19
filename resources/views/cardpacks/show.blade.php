@@ -38,13 +38,13 @@
         <div class="mdl-card__supporting-text">
             {!! Form::open(['action' => ['CardsController@store', $cardpack -> id]]) !!}
             <!-- frontside Inputfield -->
-            <div class="mdl-textfield left mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::textarea('frontside', null, ['class' => 'mdl-textfield__input', 'id' => 'frontside', 'rows' => '1']) !!}
                 {!! Form::label('frontside', 'Frontside', ['class' => 'mdl-textfield__label']) !!}
             </div>
 
             <!-- backside Inputfield -->
-            <div class="mdl-textfield right mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::textarea('backside', null, ['class' => 'mdl-textfield__input', 'id' => 'backside', 'rows' => '1']) !!}
                 {!! Form::label('backside', 'Backside', ['class' => 'mdl-textfield__label']) !!}
             </div>
@@ -60,8 +60,11 @@
             <h2 class="mdl-card__title-text">Import from CSV-File</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            {!! Form::open(['action' => ['CardsController@import', $cardpack -> id]]) !!}
-
+            {!! Form::open(['action' => ['CardpacksController@import', $cardpack -> id], 'files' => true]) !!}
+                    {!! Form::file('csvImport')!!}
+                <div class="form-group">
+                    {!! Form::submit('Import CSV', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'importCsv', 'name' => 'importCsv']) !!}
+                </div>
             {!! Form::close() !!}
         </div>
     </div>

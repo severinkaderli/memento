@@ -101,6 +101,10 @@ class CardpacksController extends Controller
         return redirect('cardpacks');
     }
 
+    public function import($id){
+
+    }
+
     /**
      * @param $id
      */

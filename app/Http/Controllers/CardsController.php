@@ -27,16 +27,6 @@ class CardsController extends Controller
         return redirect('cardpacks/' . $id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
