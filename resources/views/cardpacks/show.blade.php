@@ -6,22 +6,23 @@
 
 @section('content')
     <!-- play cardpack button -->
-    <a href="{{url('cardpacks/create')}}">
-        <button class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    {!! Form::open(['action' => ['CardsController@delete', $cardpack -> id]]) !!}
+        {!! Form::hidden('toDelete', 1, ['id' => 'toDelete']) !!}
+        <button type="submit" class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons">delete</i>
         </button>
-    </a>
+    {!! Form::close() !!}
     <div class="table-wrapper">
         <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell mdl-cell--12-col mdl-shadow--2dp full-width">
             <thead>
-            <tr>
+            <tr class="card-row">
                 <th class="mdl-data-table__cell--non-numeric">Frontside</th>
                 <th class="mdl-data-table__cell--non-numeric">Backside</th>
             </tr>
             </thead>
             <tbody>
             @foreach($cardpack -> cards as $card)
-                <tr>
+                <tr class="card-row" data-id="{{ $card -> id }}">
                     <td class="mdl-data-table__cell--non-numeric">{{$card -> frontside}}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{$card -> backside}}</td>
                 </tr>
@@ -68,6 +69,25 @@
             {!! Form::close() !!}
         </div>
     </div>
+@stop
+
+@section('bodyJS')
+    <script>
+        $(document).ready(function() {
+            $(".card-row").click(function() {
+                var hiddenstring = "";
+                $('.is-selected').each(function() {
+                    if(hiddenstring == "") {
+                        hiddenstring += $(this).data('id');
+                    } else {
+                        hiddenstring += ","+ $(this).data('id');
+                    }
+
+                });
+                $('#toDelete').val(hiddenstring);
+            });
+        });
 
 
+    </script>
 @stop

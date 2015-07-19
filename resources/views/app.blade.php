@@ -75,5 +75,6 @@
         <script>
             autosize($('textarea'));
         </script>
+        @yield('bodyJS')
     </body>
 </html>
