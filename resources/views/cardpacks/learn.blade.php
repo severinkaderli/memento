@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-    Cardpacks - {{$cardpack -> title}} - Learning
+    Cardpacks - {{$cardpack -> title}} - Card {{$cardnumber}}/{{$numberOfCards}}
 @stop
 
 @section('content')
@@ -16,6 +16,7 @@
             {!! Form::open(['action' => ['CardpacksController@learn', $cardpack->id]]) !!}
             <div class="form-group">
                 {!! Form::hidden('card_id', $card->id) !!}
+                {!! Form::hidden('cardnumber', $cardnumber) !!}
                 {!! Form::hidden('finished', implode(',', $finished)) !!}
                 {!! Form::submit('Next', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'nextCard', 'name' => 'nextCard']) !!}
             </div>

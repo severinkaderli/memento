@@ -135,11 +135,21 @@ class CardpacksController extends Controller
                 -> limit(1)
                 -> get();
 
+        //Get Current Card number
+        if(isset($_REQUEST["cardnumber"])) {
+            $cardnumber = intval($_REQUEST["cardnumber"]) + 1;
+        } else {
+            $cardnumber = 1;
+        }
+
+        //Get complete number of cards
+        $numberOfCards = count($cardpack -> cards);
+
         //Check if there are any card left
         if(count($card) == 0) {
             return redirect('cardpacks');
         }
 
-        return view('cardpacks.learn', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished]);
+        return view('cardpacks.learn', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished, 'cardnumber' => $cardnumber, 'numberOfCards' => $numberOfCards]);
     }
 }
