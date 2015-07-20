@@ -70,6 +70,11 @@ html, body {
     z-index: 100;
 }
 
+.mdl-menu__item a {
+    color: inherit;
+    font-weight: inherit;
+}
+
 /*Some padding so the fab has always enough space*/
 .demo-content {
     padding-bottom: 75px;

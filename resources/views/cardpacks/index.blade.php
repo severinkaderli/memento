@@ -6,10 +6,8 @@
 
 @section('content')
     <!-- create cardpack button -->
-    <a href="{{url('cardpacks/create')}}">
-        <button class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <a class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href="{{url('cardpacks/create')}}">
            <i class="material-icons">add</i>
-        </button>
     </a>
     @forelse($cardpacks as $pack)
         <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
@@ -30,9 +28,12 @@
 
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                 for="cardpackMenuButton{{$pack -> id}}">
-                <a href="{{url('cardpacks/' . $pack -> id . '/edit')}}"><li class="mdl-menu__item">Edit</li></a>
-                <a href="{{url('cardpacks/' . $pack -> id)}}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?"><li class="mdl-menu__item">Delete</li></a>
-                <a target="_blank" href="{{url('cardpacks/' . $pack -> id . '/export')}}"><li class="mdl-menu__item">Export as CSV</li></a>
+                <li class="mdl-menu__item"><a href="{{url('cardpacks/' . $pack -> id . '/edit')}}">Edit</a></li>
+                <li class="mdl-menu__item"><a href="{{url('cardpacks/' . $pack -> id)}}"
+                   data-method="delete"
+                   data-token="{{csrf_token()}}"
+                   data-confirm="Are you sure?">Delete</a></li>
+                <li class="mdl-menu__item"><a target="_blank" href="{{url('cardpacks/' . $pack -> id . '/export')}}">Export as CSV</a></li>
             </ul>
         </div>
     @empty
