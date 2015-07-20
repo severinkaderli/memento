@@ -22,18 +22,27 @@
                 <a href="{{url('cardpacks/' . $pack -> id . '/learn')}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Learn</a>
                 <a href="{{url('cardpacks/' . $pack -> id)}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Edit Cards</a>
             </div>
+
+            <!-- Menu button -->
             <button id="cardpackMenuButton{{$pack -> id}}" class="card-menu-button mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons">more_vert</i>
             </button>
 
+            <!-- Card menu -->
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                 for="cardpackMenuButton{{$pack -> id}}">
-                <li class="mdl-menu__item"><a href="{{url('cardpacks/' . $pack -> id . '/edit')}}">Edit</a></li>
-                <li class="mdl-menu__item"><a href="{{url('cardpacks/' . $pack -> id)}}"
-                   data-method="delete"
-                   data-token="{{csrf_token()}}"
-                   data-confirm="Are you sure?">Delete</a></li>
-                <li class="mdl-menu__item"><a target="_blank" href="{{url('cardpacks/' . $pack -> id . '/export')}}">Export as CSV</a></li>
+                <li class="mdl-menu__item">
+                    <a href="{{url('cardpacks/' . $pack -> id . '/edit')}}">Edit</a>
+                </li>
+                <li class="mdl-menu__item">
+                    <a href="{{url('cardpacks/' . $pack -> id)}}"
+                       data-method="delete"
+                       data-token="{{csrf_token()}}"
+                       data-confirm="Are you sure?">Delete</a>
+                </li>
+                <li class="mdl-menu__item">
+                    <a target="_blank" href="{{url('cardpacks/' . $pack -> id . '/export')}}">Export as CSV</a>
+                </li>
             </ul>
         </div>
     @empty

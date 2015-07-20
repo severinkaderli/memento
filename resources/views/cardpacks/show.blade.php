@@ -58,11 +58,14 @@
     </div>
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
         <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">Import from CSV-File</h2>
+            <h2 class="mdl-card__title-text">Import from CSV-File (not wroking)</h2>
         </div>
         <div class="mdl-card__supporting-text">
             {!! Form::open(['action' => ['CardpacksController@import', $cardpack -> id], 'files' => true]) !!}
+                <div class="form-group">
                     {!! Form::file('csvImport')!!}
+                </div>
+                <div class="mdl-layout-spacer"></div>
                 <div class="form-group">
                     {!! Form::submit('Import CSV', ['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'id' => 'importCsv', 'name' => 'importCsv']) !!}
                 </div>

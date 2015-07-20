@@ -2,6 +2,10 @@ html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
+.version {
+    text-align: center;
+}
+
 /************/
 /*Flip Cards*/
 /************/
@@ -70,9 +74,18 @@ html, body {
     z-index: 100;
 }
 
+/*three dot menu*/
+.mdl-menu__item {
+    padding: 0 !important;
+}
+
 .mdl-menu__item a {
     color: inherit;
     font-weight: inherit;
+    text-decoration: none;
+    /*Fix for link size in menu*/
+    display: block;
+    text-indent: 16px;
 }
 
 /*Some padding so the fab has always enough space*/
@@ -136,10 +149,6 @@ html, body {
 
 .drawer-email {
     text-align: center;
-}
-
-.mdl-menu a {
-    text-decoration: none;
 }
 
 .mdl-data-table th:first-of-type {
