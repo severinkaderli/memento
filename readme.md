@@ -1,4 +1,5 @@
 ## memento
-Simple flashcard web application in beautiful material design. It is build with Laraval.
+memento is a simple flashcard web application, which was built with Laravel. The frontend was done with the help of MDL by Google.
 
-http://memento.severinkaderli.ch
+The current version of mement can be accessed via the following link:
+[http://memento.severinkaderli.ch](http://memento.severinkaderli.ch)
