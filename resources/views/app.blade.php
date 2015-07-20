@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
+        <!-- Todo: remove demo-classes from html-file -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="_token" content="{{ csrf_token() }}">
         <base href="{{URL::to('/')}}">
+        <!-- SEO Information -->
         <title>memento - @yield('title')</title>
-        <meta name="description" content="Web-Flashcards">
-        <meta name="_token" content="{{ csrf_token() }}"/>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+        <meta name="description" content="memento is a simple web-based flashcard application.">
+        <meta name="keywords" content="flash, cards, memento, remember, learning, tool, material-design, material, words">
+        <meta name="author" content="Severin Kaderli">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <!--CSS here -->
+        <!-- CSS Files -->
         <link rel="stylesheet" type="text/css" href="{{URL::asset('css/material.min.css')}}" />
         <link rel="stylesheet" type="text/css" href="{{URL::asset('css/styles.css')}}">
+        @yield('extraCSS')
+        <!-- JS Files -->
+        @yield('extraJS')
     </head>
     <body>
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -23,9 +31,11 @@
                 </div>
             </header>
             <!-- Header END -->
-            <!-- Navigation START -->
+            <!-- Sidebar START -->
             <div class="drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+                <!-- Drawer START -->
                 <header class="drawer-header">
+                    <!-- Todo: add a proper logo -->
                     <span style="font-size:3.5em;font-weight:bold;font-style:italic;">memento</span>
                     <div class="drawer-email">
                         @if(Auth::check())
@@ -33,21 +43,22 @@
                         @endif
                     </div>
                 </header>
+                <!-- Drawer END -->
+                <!-- Navigation START -->
                 <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
                     @if(!Auth::check())
                         <a class="mdl-navigation__link" href="{{url('/')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Home</a>
-
                     @else
                         <a class="mdl-navigation__link" href="{{url('cardpacks')}}"><i class="mdl-color-text--blue-grey-400 material-icons">dashboard</i>Cardpacks</a>
                         <a class="mdl-navigation__link" href="{{url('logout')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Logout</a>
                     @endif
-
                         <div class="mdl-layout-spacer"></div>
                         <!-- todo: add about site-->
                         <span>memento v0.1-alpha</span>
                 </nav>
+                <!-- Navigation END -->
             </div>
-            <!-- Navigation END -->
+            <!-- Sidebar END -->
             <!-- Content START -->
             <main class="mdl-layout__content mdl-color--grey-100">
                 <div class="mdl-grid demo-content">
@@ -56,8 +67,10 @@
             </main>
             <!-- Content END -->
         </div>
+        <!-- Body JS -->
         <script src="{{ URL::asset('js/jquery-2.1.4.min.js')}}"></script>
-        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+        <script src="{{ URL::asset('js/material.min.js')}}"></script>
+        <!-- Todo: combine little scripts into one file and compress -->
         <script src="{{ URL::asset('js/rest_delete.js') }}"></script>
         <script src="{{ URL::asset('js/autosize.min.js') }}"></script>
         <script src="{{ URL::asset('js/cardAjax.js') }}"></script>
