@@ -116,7 +116,7 @@ class CardpacksController extends Controller
 
         return $cardpack;
     }
-
+    
     public function learn($id){
         $cardpack = Cardpack::findOrFail($id);
         if($cardpack -> user -> id != Auth::id()) {
