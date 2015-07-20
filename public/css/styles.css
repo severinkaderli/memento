@@ -18,6 +18,52 @@ html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
+/*Flip Cards*/
+.flipContainer {
+    perspective: 1000;
+    -webkit-perspective: 1000;
+    position: relative;
+    width: 100%;
+}
+
+.flipCard {
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    min-height: 0;
+}
+
+.flipCard .frontside, .flipCard .backside {
+    width: 100%;
+}
+
+.flipCard .frontside {
+    display: inline-block;
+    z-index: 10;
+}
+
+.flipCard .backside {
+    transform: rotateX(180deg);
+    display: none;
+    z-index: 9;
+}
+
+.flipCard.flipped {
+    transform: rotateX(180deg);
+}
+
+.flipCard.flipped .frontside{
+    display: none;
+    z-index: 9;
+}
+
+.flipCard.flipped .backside{
+    display: inline-block;
+    z-index: 10;
+
+}
+
+
 .card-menu-button {
     position: absolute;
     top: 8px;
