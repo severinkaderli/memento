@@ -1,9 +1,10 @@
 /*Makes a ajax call and gets the next card in a learning set*/
 function getNextCard() {
 
+    var baseURL = $('base').attr('href') + "/";
     //Check if it's the last card
     if($('#nextCard').data('cardnumber') == $('#nextCard').data('numberofcards')) {
-        window.location = "http://localhost/memento/public/cardpacks";
+        window.location = baseURL + "cardpacks";
     }
 
     //Send the csrf_token
@@ -22,7 +23,7 @@ function getNextCard() {
 
     $.ajax({
         type: "POST",
-        url: "/memento/public/cardpacks/" + $('#nextCard').data('cardpackid') + "/learn",
+        url: baseURL + "cardpacks/" + $('#nextCard').data('cardpackid') + "/learn",
         data: data,
         success: function(data) {
             //Replace content with new card...
