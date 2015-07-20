@@ -6,7 +6,7 @@
                 <h2 class="mdl-card__title-text">Card {{$cardnumber}}/{{$numberOfCards}}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                frton: {{$card->frontside}}
+                {{$card->frontside}}
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip Card</a>
@@ -18,7 +18,7 @@
                 <h2 class="mdl-card__title-text">Card {{$cardnumber}}/{{$numberOfCards}}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                back: {{$card->backside}}
+                {{$card->backside}}
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip Card</a>
