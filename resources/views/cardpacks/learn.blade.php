@@ -28,24 +28,16 @@
                     back: {{$card->backside}}
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    {!! Form::open(['action' => ['CardpacksController@learn', $cardpack->id]]) !!}
-                    {!! Form::hidden('card_id', $card->id) !!}
-                    {!! Form::hidden('cardnumber', $cardnumber) !!}
-                    {!! Form::hidden('finished', implode(',', $finished)) !!}
-                    {!! Form::submit('Next', ['class' => 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', 'id' => 'nextCard', 'name' => 'nextCard']) !!}
-                    {!! Form::close() !!}
+                    <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip Card</a>
+                    <a id="nextCard"
+                       data-cardNumber="{{$cardnumber}}"
+                       data-finished="{{implode(',', $finished)}}"
+                       data-cardId="{{$card->id}}"
+                       data-cardpackId="{{$cardpack ->id}}"
+                       data-numberofcards="{{$numberOfCards}}"
+                       class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Next Card</a>
                 </div>
             </div>
         </div>
     </div>
-
-@stop
-
-@section('bodyJS')
-    <script>
-        $('.flipCardTrigger').click(function() {
-            $(this).parents('.flipCard').toggleClass('flipped');
-        });
-    </script>
-
 @stop

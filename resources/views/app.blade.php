@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>memento - @yield('title')</title>
         <meta name="description" content="Web-Flashcards">
+        <meta name="_token" content="{{ csrf_token() }}"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!--CSS here -->
@@ -72,6 +73,7 @@
         <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
         <script src="{{ URL::asset('js/rest_delete.js') }}"></script>
         <script src="{{ URL::asset('js/autosize.min.js') }}"></script>
+        <script src="{{ URL::asset('js/cardAjax.js') }}"></script>
         <script>
             autosize($('textarea'));
         </script>

@@ -154,6 +154,12 @@ class CardpacksController extends Controller
             return redirect('cardpacks');
         }
 
-        return view('cardpacks.learn', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished, 'cardnumber' => $cardnumber, 'numberOfCards' => $numberOfCards]);
+        if(isset($_REQUEST["singleCard"]) && $_REQUEST["singleCard"] == true) {
+            return view('cards._single', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished, 'cardnumber' => $cardnumber, 'numberOfCards' => $numberOfCards]);
+
+        } else {
+            return view('cardpacks.learn', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished, 'cardnumber' => $cardnumber, 'numberOfCards' => $numberOfCards]);
+
+        }
     }
 }
