@@ -76,6 +76,8 @@
 
 @section('bodyJS')
     <script>
+        //Todo convert this to an ajax call when pressing the delete button...
+        //Todo: show delete button only when something is selected
         $(document).ready(function() {
             $(".card-row").click(function() {
                 var hiddenstring = "";
