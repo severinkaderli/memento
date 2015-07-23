@@ -8,7 +8,7 @@
     <!-- play cardpack button -->
     {!! Form::open(['action' => ['CardsController@delete', $cardpack -> id]]) !!}
         {!! Form::hidden('toDelete', 1, ['id' => 'toDelete']) !!}
-        <button type="submit" class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <button id="deleteCardsButton" class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons">delete</i>
         </button>
     {!! Form::close() !!}
@@ -76,23 +76,21 @@
 
 @section('bodyJS')
     <script>
-        //Todo convert this to an ajax call when pressing the delete button...
-        //Todo: show delete button only when something is selected
+        //Todo: write this is an own file
+        //Show delete button if there are selected cards
         $(document).ready(function() {
-            $(".card-row").click(function() {
-                var hiddenstring = "";
-                $('.is-selected').each(function() {
-                    if(hiddenstring == "") {
-                        hiddenstring += $(this).data('id');
-                    } else {
-                        hiddenstring += ","+ $(this).data('id');
-                    }
+            function checkCards() {
 
-                });
-                $('#toDelete').val(hiddenstring);
+                if($('.is-selected').length > 0) {
+                    $('#deleteCardsButton').removeClass('hide');
+                } else {
+                    $('#deleteCardsButton').addClass('hide');
+                }
+            }
+            checkCards();
+            $(".card-row").click(function() {
+                checkCards();
             });
         });
-
-
     </script>
 @stop

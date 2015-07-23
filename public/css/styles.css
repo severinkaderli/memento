@@ -74,6 +74,15 @@ html, body {
     z-index: 100;
 }
 
+/*Delete Cards Button*/
+#deleteCardsButton {
+    transition: all 0.5s;
+}
+
+#deleteCardsButton.hide {
+    bottom: -75px;
+}
+
 /*three dot menu*/
 .mdl-menu__item {
     padding: 0 !important;
