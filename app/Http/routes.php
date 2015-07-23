@@ -32,8 +32,7 @@ Route::get("cardpacks/{cardpack}/export", "CardpacksController@export");
 Route::post("cardpacks/{cardpack}/import", "CardpacksController@import");
 Route::get("cardpacks/{cardpack}/learn", "CardpacksController@learn");
 Route::post("cardpacks/{cardpack}/learn", "CardpacksController@learn");
-Route::post("cardpacks/{cardpack}", "CardsController@store");
-Route::post("cardpacks/{cardpack}/cards/delete", "CardsController@delete");
+Route::resource("cards", "CardsController");
 
 
 

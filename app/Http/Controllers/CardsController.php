@@ -18,38 +18,27 @@ class CardsController extends Controller
      * @param $id
      * @return bool
      */
-    public function store($id)
+    public function store()
     {
        // $cardpack = Cardpack::findOrFail($id);
         $card = new Card(Request::all());
-        $cardpack = Cardpack::findOrFail($id);
+        $cardpack = Cardpack::findOrFail($_REQUEST["cardpack_id"]);
         $cardpack -> cards() -> save($card);
-        return redirect('cardpacks/' . $id);
+        return redirect('cardpacks/' . $_REQUEST["cardpack_id"]);
     }
 
-    public function delete($id)
-    {
-        $toDelete = explode(',', $_REQUEST['toDelete']);
-        for($i=0; $i<count($toDelete); $i++) {
-            $card = Card::find($toDelete[$i]);
-
-            //Check if card belongs to current user
-            if($card->cardpack->user->id == Auth::id()) {
-                $card -> delete();
-            }
-
-        }
-
-        return redirect('cardpacks/' . $id);
-    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        $card = Card::findOrFail($id);
+
+        //Check if card belongs to current user
+        if($card->cardpack->user->id == Auth::id()) {
+            $card -> delete();
+        }
     }
 }

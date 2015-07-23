@@ -1,35 +1,16 @@
 @extends('app')
 
 @section('title')
-    Cardpacks - {{$cardpack -> title}}
+Cardpacks - {{$cardpack -> title}}
 @stop
 
 @section('content')
-    <!-- play cardpack button -->
-    {!! Form::open(['action' => ['CardsController@delete', $cardpack -> id]]) !!}
-        {!! Form::hidden('toDelete', 1, ['id' => 'toDelete']) !!}
-        <button id="deleteCardsButton" class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">delete</i>
-        </button>
-    {!! Form::close() !!}
-    <div class="table-wrapper">
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell mdl-cell--12-col mdl-shadow--2dp full-width">
-            <thead>
-            <tr class="card-row">
-                <th class="mdl-data-table__cell--non-numeric">Frontside</th>
-                <th class="mdl-data-table__cell--non-numeric">Backside</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($cardpack -> cards as $card)
-                <tr class="card-row" data-id="{{ $card -> id }}">
-                    <td class="mdl-data-table__cell--non-numeric">{{$card -> frontside}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{$card -> backside}}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+    <!-- delete cards button -->
+    <button id="deleteCardsButton" class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">delete</i>
+    </button>
+
+    @include('cards._table')
 
     <!-- Create card form -->
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
@@ -37,7 +18,8 @@
             <h2 class="mdl-card__title-text">Create new card</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            {!! Form::open(['action' => ['CardsController@store', $cardpack -> id]]) !!}
+            {!! Form::open(['action' => 'CardsController@store']) !!}
+            {!! Form::hidden('cardpack_id', $cardpack->id) !!}
             <!-- frontside Inputfield -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::textarea('frontside', null, ['class' => 'mdl-textfield__input', 'id' => 'frontside', 'rows' => '1']) !!}
@@ -90,6 +72,32 @@
             checkCards();
             $(".card-row").click(function() {
                 checkCards();
+            });
+
+            //Delete ajax call
+            $("#deleteCardsButton").click(function() {
+
+                //todo: put that stuff into a main js file
+                var baseURL = $('base').attr('href') + "/";
+
+                //Send the csrf_token
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name=_token]').attr('content')
+                    }
+                });
+                //endtodo
+
+                $('.is-selected').each(function() {
+
+                    $.ajax({
+                        type: "DELETE",
+                        url: baseURL + "cards/" + $(this).data('id')
+                    }, "json");
+                });
+
+                //Replace stuff
+                location.reload();
             });
         });
     </script>
