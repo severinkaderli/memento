@@ -71,6 +71,7 @@
         <script src="{{ URL::asset('js/jquery-2.1.4.min.js')}}"></script>
         <script src="{{ URL::asset('js/material.min.js')}}"></script>
         <!-- Todo: combine little scripts into one file and compress -->
+        <script src="{{ URL::asset('js/main.js') }}"></script>
         <script src="{{ URL::asset('js/rest_delete.js') }}"></script>
         <script src="{{ URL::asset('js/autosize.min.js') }}"></script>
         <script src="{{ URL::asset('js/cardAjax.js') }}"></script>

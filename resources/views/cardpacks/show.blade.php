@@ -57,48 +57,5 @@ Cardpacks - {{$cardpack -> title}}
 @stop
 
 @section('bodyJS')
-    <script>
-        //Todo: write this is an own file
-        //Show delete button if there are selected cards
-        $(document).ready(function() {
-            function checkCards() {
-
-                if($('.is-selected').length > 0) {
-                    $('#deleteCardsButton').removeClass('hide');
-                } else {
-                    $('#deleteCardsButton').addClass('hide');
-                }
-            }
-            checkCards();
-            $(".card-row").click(function() {
-                checkCards();
-            });
-
-            //Delete ajax call
-            $("#deleteCardsButton").click(function() {
-
-                //todo: put that stuff into a main js file
-                var baseURL = $('base').attr('href') + "/";
-
-                //Send the csrf_token
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name=_token]').attr('content')
-                    }
-                });
-                //endtodo
-
-                $('.is-selected').each(function() {
-
-                    $.ajax({
-                        type: "DELETE",
-                        url: baseURL + "cards/" + $(this).data('id')
-                    }, "json");
-                });
-
-                //Replace stuff
-                location.reload();
-            });
-        });
-    </script>
+    <script src="{{URL::asset('js/deleteCards.js')}}"></script>
 @stop
