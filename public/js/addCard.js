@@ -11,10 +11,22 @@ $('#addCardForm').submit(function(e){
         url: baseURL + "cards",
         data: data,
         success: function(data) {
-            console.log(data)
-            //Reload content...
+            //TODO: dynamically reload content...
+            //Create loading icon
+
+            $('#cardsTable').replaceWith(createSpinner());
+           // location.reload();
         }
     }, "json");
 
     return false;
 });
+
+function createSpinner() {
+
+    var spinner = document.createElement('div');
+    spinner.className = 'spinner mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active';
+    componentHandler.upgradeElement(spinner, 'MaterialSpinner');
+
+    return spinner;
+}

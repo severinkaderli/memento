@@ -117,6 +117,17 @@ class CardpacksController extends Controller
         return $cardpack;
     }
 
+    public function table($id){
+
+        //Load cardpack
+        $cardpack = Cardpack::findOrFail($id);
+        if($cardpack -> user -> id != Auth::id()) {
+            return redirect('cardpacks');
+        }
+
+        return view('cards._table', compact('cardpack'));
+    }
+
     public function learn($id){
         $cardpack = Cardpack::findOrFail($id);
         if($cardpack -> user -> id != Auth::id()) {

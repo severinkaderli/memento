@@ -74,6 +74,11 @@ html, body {
     z-index: 100;
 }
 
+.spinner {
+    margin: 50px 0;
+    left: calc(50% - 14px);
+}
+
 /*Delete Cards Button*/
 #deleteCardsButton {
     transition: all 0.5s;
