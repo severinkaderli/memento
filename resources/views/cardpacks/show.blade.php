@@ -18,8 +18,8 @@ Cardpacks - {{$cardpack -> title}}
             <h2 class="mdl-card__title-text">Create new card</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            {!! Form::open(['action' => 'CardsController@store']) !!}
-            {!! Form::hidden('cardpack_id', $cardpack->id) !!}
+            {!! Form::open(['action' => 'CardsController@store', 'id' => 'addCardForm']) !!}
+            {!! Form::hidden('cardpack_id', $cardpack->id, ['id' => 'cardpack_id']) !!}
             <!-- frontside Inputfield -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::textarea('frontside', null, ['class' => 'mdl-textfield__input', 'id' => 'frontside', 'rows' => '1']) !!}
@@ -58,4 +58,5 @@ Cardpacks - {{$cardpack -> title}}
 
 @section('bodyJS')
     <script src="{{URL::asset('js/deleteCards.js')}}"></script>
+    <script src="{{URL::asset('js/addCard.js')}}"></script>
 @stop
