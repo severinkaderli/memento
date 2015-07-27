@@ -6,16 +6,28 @@ $('#addCardForm').submit(function(e){
         cardpack_id: $("#cardpack_id").val()
     }
 
+    //Clear form inputs
+    $("#frontside").val("");
+    $("#backside").val("");
+
     $.ajax({
         type: "POST",
         url: baseURL + "cards",
         data: data,
         success: function(data) {
-            //TODO: dynamically reload content...
-            //Create loading icon
+
 
             $('#cardsTable').replaceWith(createSpinner());
-           // location.reload();
+
+           //Load refreshed data
+            $.ajax({
+                type: "POST",
+                url: baseURL + "cards",
+                data: data,
+                success: function(data) {
+
+                }
+            }, "json");
         }
     }, "json");
 
