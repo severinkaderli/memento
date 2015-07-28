@@ -20,14 +20,14 @@ $('#addCardForm').submit(function(e){
             $('#cardsTable').replaceWith(createSpinner());
 
            //Load refreshed data
-            $.ajax({
+           /* $.ajax({
                 type: "POST",
                 url: baseURL + "cards",
                 data: data,
                 success: function(data) {
 
                 }
-            }, "json");
+            }, "json");*/
         }
     }, "json");
 

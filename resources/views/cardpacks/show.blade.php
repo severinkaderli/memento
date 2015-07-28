@@ -6,7 +6,7 @@ Cardpacks - {{$cardpack -> title}}
 
 @section('content')
     <!-- delete cards button -->
-    <button id="deleteCardsButton" class="fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <button id="deleteCardsButton" class="hide fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
         <i class="material-icons">delete</i>
     </button>
 

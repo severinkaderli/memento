@@ -2,15 +2,18 @@
  * Display delete button if cards are selected
  */
 function checkCards() {
-    if($('.is-selected').length > 0) {
-        $('#deleteCardsButton').removeClass('hide');
-    } else {
-        $('#deleteCardsButton').addClass('hide');
-    }
+
+    //Timeout fix... for checking
+    setTimeout(function() {
+        if($('.is-selected').length > 0) {
+            $('#deleteCardsButton').removeClass('hide');
+        } else {
+            $('#deleteCardsButton').addClass('hide');
+        }
+    }, 100);
 }
 
 //Call the checkCards function on row click
-checkCards();
 $(".card-row").click(function() {
     checkCards();
 });
