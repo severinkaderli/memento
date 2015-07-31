@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost/flashcard',
+    'url' => env('APP_DEBUG', 'http://localhost/memento'),
 
     /*
     |--------------------------------------------------------------------------
