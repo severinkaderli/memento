@@ -68,7 +68,7 @@
             <!-- Content END -->
         </div>
         <!-- Body JS -->
-        <script src="{{ URL::asset('js/jquery-2.1.4.min.js')}}"></script>
+        <script src="{{ URL::asset('js/jquery.min.js')}}"></script>
         <script src="{{ URL::asset('js/material.min.js')}}"></script>
         <!-- Todo: combine little scripts into one file and compress -->
         <script src="{{ URL::asset('js/main.js') }}"></script>
