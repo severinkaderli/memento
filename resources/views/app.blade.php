@@ -9,7 +9,7 @@
         <base href="{{URL::to('/')}}">
         <!-- SEO Information -->
         <title>memento - @yield('title')</title>
-        <meta name="description" content="memento is a simple web-based flashcard application.">
+        <meta name="description" content="memento is a simple web-based flashcard application in beatiful material design.">
         <meta name="keywords" content="flash, cards, memento, remember, learning, tool, material-design, material, words">
         <meta name="author" content="Severin Kaderli">
         <!-- Fonts -->
