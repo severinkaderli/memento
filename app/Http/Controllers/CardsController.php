@@ -27,18 +27,11 @@ class CardsController extends Controller
         return redirect('cardpacks/' . $_REQUEST["cardpack_id"]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id) {
-        $card = Card::findOrFail($id);
+    public function destroy() {
 
-        //Check if card belongs to current user
-        if($card->cardpack->user->id == Auth::id()) {
-            $card -> delete();
-        }
+        $idArray = $_REQUEST["ids"];
+        Card::destroy($idArray);
+
+
     }
 }

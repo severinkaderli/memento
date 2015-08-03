@@ -34,7 +34,9 @@ Route::get("cardpacks/{cardpack}/learn", "CardpacksController@learn");
 Route::post("cardpacks/{cardpack}/learn", "CardpacksController@learn");
 
 //Cards
-Route::resource("cards", "CardsController");
+Route::post('cards', "CardsController@store");
+
+Route::post('cards/delete', "CardsController@destroy");
 
 //Cardpack table load
 Route::get('cardpacks/{cardpack}/table', "CardpacksController@table");

@@ -20,13 +20,25 @@ $(".card-row").click(function() {
 
 //Ajax call to delete cards
 $("#deleteCardsButton").click(function() {
+
+    var idArray = [];
+
     $('.is-selected').each(function() {
-        $.ajax({
-            type: "DELETE",
-            url: baseURL + "cards/" + $(this).data('id')
-        }, "json");
+        idArray.push($(this).data('id'));
     });
 
-    //TODO: maybe replace content dynamically?
-    location.reload();
+    console.log(idArray);
+
+    $.ajax({
+        type: "POST",
+        url: baseURL + "cards/delete",
+        data: {
+            ids: idArray
+        },
+        success: function(data) {
+            console.log(data)
+            //TODO: Replace content dynamically?
+            location.reload();
+        }
+    }, "json");
 });

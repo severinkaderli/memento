@@ -17,5 +17,3 @@
         </tbody>
     </table>
 </div>
-<script src="{{ URL::asset('js/jquery-2.1.4.min.js')}}"></script>
-<script src="{{ URL::asset('js/material.min.js')}}"></script>
