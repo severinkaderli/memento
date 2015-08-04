@@ -54,7 +54,7 @@
                     @endif
                         <div class="mdl-layout-spacer"></div>
                         <!-- todo: add about site-->
-                        <span class="version">v0.1.1-alpha</span>
+                        <span class="version">v0.2-alpha</span>
                 </nav>
                 <!-- Navigation END -->
             </div>
