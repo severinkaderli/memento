@@ -6,11 +6,13 @@ Cardpacks - {{$cardpack -> title}}
 
 @section('content')
     <!-- delete cards button -->
-    <button id="deleteCardsButton" class="hide fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <button data-cardpackid="{{$cardpack -> id}}" id="deleteCardsButton" class="hide fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
         <i class="material-icons">delete</i>
     </button>
-
-    @include('cards._table')
+    <!-- Cards Table -->
+    <div class="table-wrapper">
+        @include('cards._table')
+    </div>
 
     <!-- Create card form -->
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
@@ -19,7 +21,7 @@ Cardpacks - {{$cardpack -> title}}
         </div>
         <div class="mdl-card__supporting-text">
             {!! Form::open(['action' => 'CardsController@store', 'id' => 'addCardForm']) !!}
-            {!! Form::hidden('cardpack_id', $cardpack->id, ['id' => 'cardpack_id']) !!}
+            {!! Form::hidden('cardpackid', $cardpack->id, ['id' => 'cardpackid']) !!}
             <!-- frontside Inputfield -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::textarea('frontside', null, ['class' => 'mdl-textfield__input', 'id' => 'frontside', 'rows' => '1']) !!}

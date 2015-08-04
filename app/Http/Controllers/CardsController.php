@@ -18,13 +18,11 @@ class CardsController extends Controller
      * @param $id
      * @return bool
      */
-    public function store()
-    {
-       // $cardpack = Cardpack::findOrFail($id);
+    public function store() {
         $card = new Card(Request::all());
-        $cardpack = Cardpack::findOrFail($_REQUEST["cardpack_id"]);
+        $cardpack = Cardpack::findOrFail($_REQUEST["cardpackid"]);
         $cardpack -> cards() -> save($card);
-        return redirect('cardpacks/' . $_REQUEST["cardpack_id"]);
+        return view('cards._table', compact('cardpack'));
     }
 
     public function destroy() {
@@ -32,6 +30,7 @@ class CardsController extends Controller
         $idArray = $_REQUEST["ids"];
         Card::destroy($idArray);
 
-
+        $cardpack = Cardpack::findOrFail($_REQUEST["cardpackid"]);
+        return view('cards._table', compact('cardpack'));
     }
 }

@@ -77,6 +77,8 @@ html, body {
 .spinner {
     margin: 50px 0;
     left: calc(50% - 14px);
+    width: 28px;
+    height: 28px;
 }
 
 /*Delete Cards Button*/

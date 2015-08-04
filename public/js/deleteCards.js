@@ -14,31 +14,37 @@ function checkCards() {
 }
 
 //Call the checkCards function on row click
-$(".card-row").click(function() {
+$(".card-row").change(function() {
     checkCards();
 });
 
 //Ajax call to delete cards
 $("#deleteCardsButton").click(function() {
 
+    var cardpackid = $(this).data('cardpackid');
     var idArray = [];
 
     $('.is-selected').each(function() {
         idArray.push($(this).data('id'));
     });
 
-    console.log(idArray);
+    //Show spinner to indicate loading
+    $("#cardsTable").replaceWith(createSpinner());
 
     $.ajax({
         type: "POST",
         url: baseURL + "cards/delete",
         data: {
-            ids: idArray
+            ids: idArray,
+            cardpackid: cardpackid
         },
         success: function(data) {
-            console.log(data)
-            //TODO: Replace content dynamically?
-            location.reload();
+            $("#loadingSpinner").replaceWith(data);
+            //TODO: Maybe get this to work with upgradeElement
+            componentHandler.upgradeDom();
+            $(".card-row").change(function() {
+                checkCards();
+            });
         }
     }, "json");
 });

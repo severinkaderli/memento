@@ -3,42 +3,28 @@ $('#addCardForm').submit(function(e){
     var data = {
         frontside: $("#frontside").val(),
         backside: $("#backside").val(),
-        cardpack_id: $("#cardpack_id").val()
+        cardpackid: $("#cardpackid").val()
     }
 
     //Clear form inputs
     $("#frontside").val("");
     $("#backside").val("");
 
+    //Show spinner to indicate loading
+    $('#cardsTable').replaceWith(createSpinner());
+
     $.ajax({
         type: "POST",
         url: baseURL + "cards",
         data: data,
         success: function(data) {
-
-
-            $('#cardsTable').replaceWith(createSpinner());
-
-           //Load refreshed data
-           /* $.ajax({
-                type: "POST",
-                url: baseURL + "cards",
-                data: data,
-                success: function(data) {
-
-                }
-            }, "json");*/
+            $('#loadingSpinner').replaceWith(data);
+            componentHandler.upgradeDom();
+            $('#frontside').focus();
+            checkCards();
+            $(".card-row").change(function() {
+                checkCards();
+            });
         }
     }, "json");
-
-    return false;
 });
-
-function createSpinner() {
-
-    var spinner = document.createElement('div');
-    spinner.className = 'spinner mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active';
-    componentHandler.upgradeElement(spinner, 'MaterialSpinner');
-
-    return spinner;
-}
