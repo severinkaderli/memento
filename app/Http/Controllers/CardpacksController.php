@@ -103,6 +103,19 @@ class CardpacksController extends Controller
 
     public function import($id){
 
+        //Store file temporarily
+
+        //Process CSV ,
+
+        //Delete
+
+
+        //Return the cardpack table
+        $cardpack = Cardpack::findOrFail($id);
+        if($cardpack -> user -> id != Auth::id()) {
+            return redirect('cardpacks');
+        }
+        return view('cards.table', compact('cardpack'));
     }
 
     /**

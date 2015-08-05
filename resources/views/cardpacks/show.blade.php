@@ -61,4 +61,14 @@ Cardpacks - {{$cardpack -> title}}
 @section('bodyJS')
     <script src="{{URL::asset('js/deleteCards.js')}}"></script>
     <script src="{{URL::asset('js/addCard.js')}}"></script>
+    <script>
+        $('#importCsv').click(function(e) {
+            e.preventDefault();
+            var file_data = $('#csvImport').prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            alert(form_data);
+        });
+
+    </script>
 @stop
