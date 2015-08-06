@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cardpack;
 use App\Card;
+use Input;
 
 class CardpacksController extends Controller
 {
@@ -16,12 +17,13 @@ class CardpacksController extends Controller
     /**
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function index() {
-        if(!Request::user()) {
+    public function index()
+    {
+        if (!Request::user()) {
             return redirect('/');
         }
 
-        $cardpacks = Auth::user() -> cardpacks() -> latest() -> get();
+        $cardpacks = Auth::user()->cardpacks()->latest()->get();
         return view('cardpacks.index', compact('cardpacks'));
     }
 
@@ -29,9 +31,10 @@ class CardpacksController extends Controller
      * @param $id
      * @return mixed
      */
-    public function show($id) {
+    public function show($id)
+    {
         $cardpack = Cardpack::find($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
 
@@ -41,8 +44,9 @@ class CardpacksController extends Controller
     /**
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function create() {
-        if(!Request::user()) {
+    public function create()
+    {
+        if (!Request::user()) {
             return redirect('/');
         }
 
@@ -54,10 +58,11 @@ class CardpacksController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store() {
+    public function store()
+    {
 
         $cardpack = new Cardpack(Request::all());
-        Auth::user() -> cardpacks() -> save($cardpack);
+        Auth::user()->cardpacks()->save($cardpack);
         return redirect('cardpacks');
     }
 
@@ -65,9 +70,10 @@ class CardpacksController extends Controller
      * @param $id
      * @return \Illuminate\View\View
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
         return view('cardpacks.edit', compact('cardpack'));
@@ -77,12 +83,13 @@ class CardpacksController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id) {
+    public function update($id)
+    {
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
-        $cardpack -> update(Request::all());
+        $cardpack->update(Request::all());
 
         return redirect('cardpacks');
     }
@@ -91,94 +98,113 @@ class CardpacksController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
-        $cardpack -> delete();
+        $cardpack->delete();
 
         return redirect('cardpacks');
     }
 
-    public function import($id){
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function import($id)
+    {
 
         //Store file temporarily
+        $path = public_path() . "/temp/";
+        $filename = uniqid() . "." . Input::file('csvImport')->getClientOriginalExtension();
+        Input::file('csvImport')->move($path, $filename);
 
-        //Process CSV ,
-
-        //Delete
-
-
-        //Return the cardpack table
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
-        return view('cards.table', compact('cardpack'));
+
+        //Process the csv file
+        $handle = fopen($path . $filename, 'r');
+        while ($row = fgetcsv($handle, ',')) {
+            $card = new Card(['frontside' => $row[0], 'backside' => $row[1]]);
+            $cardpack->cards()->save($card);
+        }
+        fclose($handle);
+
+        //Delete uploaded file
+        unlink($path . $filename);
+
+        //Return to the cardpack view
+        return redirect('cardpacks/' . $cardpack->id);
     }
 
     /**
      * @param $id
      */
-    public function export($id){
+    public function export($id)
+    {
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
 
         return $cardpack;
     }
 
-    public function table($id){
+    public function table($id)
+    {
 
         //Load cardpack
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
 
         return view('cards._table', compact('cardpack'));
     }
 
-    public function learn($id){
+    public function learn($id)
+    {
         $cardpack = Cardpack::findOrFail($id);
-        if($cardpack -> user -> id != Auth::id()) {
+        if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
 
-        if(isset($_REQUEST["finished"])) {
+        if (isset($_REQUEST["finished"])) {
             $finished = explode(',', $_REQUEST["finished"]);
         } else {
             $finished = [0];
         }
 
-        if(isset($_REQUEST['card_id'])) {
+        if (isset($_REQUEST['card_id'])) {
             array_push($finished, $_REQUEST['card_id']);
         }
         //Get random cards
         $card = Card::orderByRaw("RAND()")
-                -> where('cardpack_id', $id)
-                -> whereNotIn('id', $finished)
-                -> limit(1)
-                -> get();
+            ->where('cardpack_id', $id)
+            ->whereNotIn('id', $finished)
+            ->limit(1)
+            ->get();
 
         //Get Current Card number
-        if(isset($_REQUEST["cardnumber"])) {
+        if (isset($_REQUEST["cardnumber"])) {
             $cardnumber = intval($_REQUEST["cardnumber"]) + 1;
         } else {
             $cardnumber = 1;
         }
 
         //Get complete number of cards
-        $numberOfCards = count($cardpack -> cards);
+        $numberOfCards = count($cardpack->cards);
 
         //Check if there are any card left
-        if(count($card) == 0) {
+        if (count($card) == 0) {
             return redirect('cardpacks');
         }
 
-        if(isset($_REQUEST["singleCard"]) && $_REQUEST["singleCard"] == true) {
+        if (isset($_REQUEST["singleCard"]) && $_REQUEST["singleCard"] == true) {
             return view('cards._single', ['cardpack' => $cardpack, 'card' => $card[0], 'finished' => $finished, 'cardnumber' => $cardnumber, 'numberOfCards' => $numberOfCards]);
 
         } else {
