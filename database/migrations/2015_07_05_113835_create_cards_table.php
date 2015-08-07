@@ -20,7 +20,7 @@ class CreateCardsTable extends Migration
             $table->timestamps();
 
             //Foreignkeys
-            $table -> foreign('cardpack_id')->references('id')->on('cardpacks');
+            $table -> foreign('cardpack_id')->references('id')->on('cardpacks')->onDelete('cascade');
         });
     }
 

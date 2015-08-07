@@ -143,6 +143,7 @@ class CardpacksController extends Controller
 
     /**
      * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Symfony\Component\HttpFoundation\Response
      */
     public function export($id)
     {
@@ -150,10 +151,25 @@ class CardpacksController extends Controller
         if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
+        $cards = $cardpack -> cards()->get();
 
-        return $cardpack;
+        $output = "";
+        foreach($cards as $card) {
+            $output .= implode(",", [$card->frontside, $card->backside]) . PHP_EOL;
+        }
+
+        $headers = [
+            "Content-Type" => 'text/csv',
+            "Content-Disposition" => 'attachment; filename="export.csv"'
+        ];
+
+        return Response($output, 200, $headers);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function table($id)
     {
 
