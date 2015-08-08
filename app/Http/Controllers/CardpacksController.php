@@ -115,7 +115,7 @@ class CardpacksController extends Controller
      */
     public function import($id)
     {
-
+        //TODO: Validation
         //Store file temporarily
         $path = public_path() . "/temp/";
         $filename = uniqid() . "." . Input::file('csvImport')->getClientOriginalExtension();
@@ -147,6 +147,7 @@ class CardpacksController extends Controller
      */
     public function export($id)
     {
+        //TODO: Better name for output file
         $cardpack = Cardpack::findOrFail($id);
         if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');

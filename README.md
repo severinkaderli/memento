@@ -9,4 +9,5 @@ The current version of mement can be accessed via the following link:
 * Login-System
 * Cardpack creation, editing, deleting
 * Card creation, deleting
+* CSV Import & Export
 * Learning

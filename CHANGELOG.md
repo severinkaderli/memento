@@ -1,3 +1,7 @@
+### 0.3-alpha (2015-08-08)
+- CSV Import
+- CSV Export
+
 ### 0.2-alpha (2015-08-04)
 - Deleting and creating of cards is now done with ajax
 - Delete button has now a transition when cards are selected
