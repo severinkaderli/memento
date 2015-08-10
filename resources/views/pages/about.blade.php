@@ -4,10 +4,6 @@
     About
 @stop
 
-@section('breadcrumbs')
-    About
-@stop
-
 @section('content')
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
             <div class="mdl-card__supporting-text">

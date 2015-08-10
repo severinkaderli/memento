@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-    Cardpacks - Overview
+    Cardpacks
 @stop
 
 @section('content')
