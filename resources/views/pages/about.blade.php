@@ -1,7 +1,11 @@
 @extends("app")
 
 @section('title')
-    About memento
+    About
+@stop
+
+@section('breadcrumbs')
+    About
 @stop
 
 @section('content')
@@ -9,8 +13,8 @@
             <div class="mdl-card__supporting-text">
                 <h5>What is memento?</h5>
                 <p>memento is a flashcard application for the web. It was designed with mobile devices in mind.
-                    That way you can learn your cards whereever you are. memento was created with the PHP-Framework
-                Laravel. The frontend was done with the help from Material Design Lite by Google.</p>
+                    That way you can learn your cards where-ever you are. memento was created with the PHP-Framework
+                <a href="http://laravel.com/">Laravel</a>. The frontend was done with the help from <a href="https://github.com/google/material-design-lite">Material Design Lite</a> by Google.</p>
                 <h5>Current features:</h5>
                 <ul>
                     <li>Login and registering of new users</li>
