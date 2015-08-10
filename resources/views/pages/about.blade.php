@@ -19,6 +19,8 @@
                     <li>CSV-Import and CSV-Export for cards</li>
                     <li>Card-learning</li>
                 </ul>
+                <h5>Get memento</h5>
+                <p>You can use memento on this site as much as you want for free and without limitations. If you want to install memento on your own server then you can get the source code and install instructions on  <a href="https://github.com/severinkaderli/memento">GitHub</a>.
             </div>
     </div>
 @stop
