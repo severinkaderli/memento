@@ -53,7 +53,7 @@
                         <a class="mdl-navigation__link" href="{{url('logout')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Logout</a>
                     @endif
                         <div class="mdl-layout-spacer"></div>
-                        <!-- todo: add about site-->
+                        <a class="mdl-navigation__link" href="{{url('about')}}"><i class="mdl-color-text--blue-grey-400 material-icons">help</i>About</a>
                         <span class="version">v0.3-alpha</span>
                 </nav>
                 <!-- Navigation END -->

@@ -24,7 +24,6 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 Route::get('/', "PageController@home");
 Route::get('home', "PageController@home");
 Route::get('about', "PageController@about");
-Route::get('contact', "PageController@contact");
 
 //Cardpacks
 Route::resource("cardpacks", "CardpacksController");
