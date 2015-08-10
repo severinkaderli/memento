@@ -1,3 +1,8 @@
+### 0.4-alpha (2015-08-10)
+- Added about page
+- Changes to README.md
+- Added LICENSE
+
 ### 0.3-alpha (2015-08-08)
 - CSV Import
 - CSV Export
