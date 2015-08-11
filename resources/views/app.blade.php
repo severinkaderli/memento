@@ -55,7 +55,7 @@
                         <div class="mdl-layout-spacer"></div>
                         <a class="mdl-navigation__link" href="{{url('about')}}"><i class="mdl-color-text--blue-grey-400 material-icons">help</i>About</a>
                         <span class="version">
-                            v0.3-alpha
+                            v0.4-alpha
                             <br>
                             &copy;2015 Severin Kaderli
                         </span>

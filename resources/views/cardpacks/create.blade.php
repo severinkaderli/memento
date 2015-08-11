@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Create cardpack</h2>
         </div>
@@ -18,7 +18,7 @@
             {!! Form::close() !!}
         </div>
     </div>
-    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Import from CSV</h2>
         </div>
