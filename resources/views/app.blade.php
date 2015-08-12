@@ -65,7 +65,7 @@
             <!-- Sidebar END -->
             <!-- Content START -->
             <main class="mdl-layout__content mdl-color--grey-100">
-                <div class="mdl-grid demo-content">
+                <div class="mdl-grid mdl-grid--center demo-content">
                     @yield('content')
                 </div>
             </main>

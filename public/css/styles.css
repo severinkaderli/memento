@@ -7,6 +7,11 @@ html, body {
     margin: 5px 0;
 }
 
+/*Center content of mdl-grid*/
+.mdl-grid.mdl-grid--center {
+	justify-content: center;
+}
+
 /************/
 /*Flip Cards*/
 /************/
