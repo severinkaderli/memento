@@ -1,15 +1,75 @@
+/*********/
+/*General*/
+/*********/
 html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
-.version {
+/********/
+/*Header*/
+/********/
+
+/********/
+/*Drawer*/
+/********/
+#drawer {
+    border: none;
+}
+
+
+.drawer-header {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 16px;
+    height: 151px;
+}
+
+.drawer-email {
+    text-align: center;
+}
+
+/************/
+/*Navigation*/
+/************/
+
+/*********/
+/*Content*/
+/*********/
+#contentWrapper {
+    max-width: 1080px;
+    padding-bottom: 75px;
+}
+
+/********/
+/*Footer*/
+/********/
+#footer {
+    display: inline-block;
     text-align: center;
     margin: 5px 0;
 }
 
-/*Center content of mdl-grid*/
+#footer p {
+    margin: 0;
+}
+
+/*******/
+/*Cards*/
+/*******/
 .mdl-grid.mdl-grid--center {
-	justify-content: center;
+    justify-content: center;
 }
 
 /************/
@@ -49,12 +109,12 @@ html, body {
     transform: rotateX(180deg);
 }
 
-.flipCard.flipped .frontside{
+.flipCard.flipped .frontside {
     display: none;
     z-index: 9;
 }
 
-.flipCard.flipped .backside{
+.flipCard.flipped .backside {
     display: inline-block;
     z-index: 10;
 }
@@ -65,7 +125,7 @@ html, body {
 
 /*TODO: Better shadow handling*/
 .flipCard.flipped.mdl-shadow--2dp {
-    box-shadow: 0 -2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12) !important;
+    box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
 }
 
 /*Card menu button positioning*/
@@ -114,108 +174,64 @@ html, body {
     text-indent: 16px;
 }
 
-/*Some padding so the fab has always enough space*/
-.demo-content {
-    padding-bottom: 75px;
-}
-
+/*Tables*/
 /*Wrapper for responsive tables*/
+/*TODO: Better responsive design for tables*/
 .table-wrapper {
     overflow-x: auto;
     width: 100%;
     max-width: 100%;
 }
 
-.demo-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    border-radius: 50px;
-}
-.demo-layout .demo-header .mdl-textfield {
-  padding-top: 27px;
-}
-.demo-layout .mdl-layout__header .mdl-layout__drawer-button {
-  color: rgba(0, 0, 0, 0.54);
-}
-.mdl-layout__drawer .avatar {
-  margin-bottom: 16px;
-}
-.drawer {
-  border: none;
-}
-.drawer .mdl-menu .mdl-menu__item{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.drawer-header {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding: 16px;
-  height: 151px;
+#layoutWrapper #header .mdl-textfield {
+    padding-top: 27px;
 }
 
-.drawer-email {
-    text-align: center;
+#layoutWrapper .mdl-layout__header .mdl-layout__drawer-button {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.mdl-layout__drawer .avatar {
+    margin-bottom: 16px;
 }
 
 .mdl-data-table th:first-of-type {
-    text-align:left;
+    text-align: left;
 }
 
-.demo-navigation {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-.demo-layout .demo-navigation .mdl-navigation__link {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: rgba(255, 255, 255, 0.56);
-  font-weight: 500;
-}
-.demo-layout .demo-navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
-  color: #37474F;
-}
-.demo-navigation .mdl-navigation__link .material-icons {
-  font-size: 24px;
-  color: rgba(255, 255, 255, 0.56);
-  margin-right: 32px;
+#navigation {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
 }
 
-.demo-content {
-  max-width: 1080px;
+#layoutWrapper #navigation .mdl-navigation__link {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+}
+
+#layoutWrapper #navigation .mdl-navigation__link:hover {
+    background-color: #00BCD4;
+    color: #37474F;
+}
+
+#navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-right: 32px;
 }
 
 .content-card {

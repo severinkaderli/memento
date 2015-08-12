@@ -23,9 +23,9 @@
         @yield('extraJS')
     </head>
     <body>
-        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <div id="layoutWrapper" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
             <!-- Header START -->
-            <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
+            <header id="header" class="mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
                 <div class="mdl-layout__header-row">
                     <span class="mdl-layout-title">@yield('title')</span>
                 </div>
@@ -45,7 +45,7 @@
                 </header>
                 <!-- Drawer END -->
                 <!-- Navigation START -->
-                <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+                <nav id="navigation" class="mdl-navigation mdl-color--blue-grey-800">
                     @if(!Auth::check())
                         <a class="mdl-navigation__link" href="{{url('/')}}"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Home</a>
                     @else
@@ -54,18 +54,18 @@
                     @endif
                         <div class="mdl-layout-spacer"></div>
                         <a class="mdl-navigation__link" href="{{url('about')}}"><i class="mdl-color-text--blue-grey-400 material-icons">help</i>About</a>
-                        <span class="version">
-                            v0.4-alpha
-                            <br>
-                            &copy;2015 Severin Kaderli
-                        </span>
+                        <!-- Footer -->
+                        <div id="footer">
+                            <p>v0.4-alpha<br>&copy;2015 Severin Kaderli</p>
+                        </div>
+                        <!-- Footer -->
                 </nav>
                 <!-- Navigation END -->
             </div>
             <!-- Sidebar END -->
             <!-- Content START -->
             <main class="mdl-layout__content mdl-color--grey-100">
-                <div class="mdl-grid mdl-grid--center demo-content">
+                <div id="contentWrapper" class="mdl-grid mdl-grid--center">
                     @yield('content')
                 </div>
             </main>
