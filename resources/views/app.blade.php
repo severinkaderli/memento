@@ -35,8 +35,7 @@
             <div class="drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
                 <!-- Drawer START -->
                 <header class="drawer-header">
-                    <!-- Todo: add a proper logo -->
-                    <span style="font-size:3.5em;font-weight:bold;font-style:italic;">memento</span>
+                    <img id="logo" src="{{URL::asset('images/memento.png')}}" alt="Logo">
                     <div class="drawer-email">
                         @if(Auth::check())
                             {{Auth::user() -> email}}
