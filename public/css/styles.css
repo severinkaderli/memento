@@ -99,13 +99,94 @@ html, body {
     margin: 0;
 }
 
-/*******/
-/*Cards*/
-/*******/
+/******/
+/*Grid*/
+/******/
 .mdl-grid.mdl-grid--center {
     justify-content: center;
 }
 
+/*******/
+/*Cards*/
+/*******/
+.content-card {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.card-menu-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 99;
+}
+
+/************************/
+/*Floating Action Button*/
+/************************/
+.fab {
+    position: fixed;
+    bottom: 17px;
+    right: 17px;
+    z-index: 100;
+}
+
+/*********/
+/*Spinner*/
+/*********/
+.spinner {
+    margin: 50px 0;
+    left: calc(50% - 14px);
+    width: 28px;
+    height: 28px;
+}
+
+/********/
+/*Tables*/
+/********/
+/*Tables*/
+/*Wrapper for responsive tables*/
+/*TODO: Better responsive design for tables*/
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.mdl-data-table th:first-of-type {
+    text-align: left;
+}
+
+/*********/
+/*Buttons*/
+/*********/
+#deleteCardsButton {
+    transition: all 0.5s;
+}
+
+#deleteCardsButton.hide {
+    bottom: -75px;
+}
+
+/******/
+/*Menu*/
+/******/
+.mdl-menu__item {
+    padding: 0 !important;
+}
+
+.mdl-menu__item a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+    /*Fix for link size in menu*/
+    display: block;
+    text-indent: 16px;
+}
+
+/*TODO: Optimize this CSS*/
 /************/
 /*Flip Cards*/
 /************/
@@ -161,70 +242,3 @@ html, body {
 .flipCard.flipped.mdl-shadow--2dp {
     box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12) !important;
 }
-
-/*Card menu button positioning*/
-.card-menu-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    z-index: 99;
-}
-
-/*Floating Action Button positioning*/
-.fab {
-    position: fixed;
-    bottom: 17px;
-    right: 17px;
-    z-index: 100;
-}
-
-.spinner {
-    margin: 50px 0;
-    left: calc(50% - 14px);
-    width: 28px;
-    height: 28px;
-}
-
-/*Delete Cards Button*/
-#deleteCardsButton {
-    transition: all 0.5s;
-}
-
-#deleteCardsButton.hide {
-    bottom: -75px;
-}
-
-/*three dot menu*/
-.mdl-menu__item {
-    padding: 0 !important;
-}
-
-.mdl-menu__item a {
-    color: inherit;
-    font-weight: inherit;
-    text-decoration: none;
-    /*Fix for link size in menu*/
-    display: block;
-    text-indent: 16px;
-}
-
-/*Tables*/
-/*Wrapper for responsive tables*/
-/*TODO: Better responsive design for tables*/
-.table-wrapper {
-    overflow-x: auto;
-    width: 100%;
-    max-width: 100%;
-}
-
-.mdl-data-table th:first-of-type {
-    text-align: left;
-}
-
-.content-card {
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
