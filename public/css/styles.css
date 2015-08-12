@@ -8,6 +8,14 @@ html, body {
 /********/
 /*Header*/
 /********/
+#header .mdl-layout-title {
+    /*TODO: Remove this if it's fixed in MDL*/
+    padding-left: 11px;
+}
+
+#header .mdl-layout__drawer-button {
+    color: rgba(0, 0, 0, 0.54);
+}
 
 /********/
 /*Drawer*/
@@ -23,15 +31,51 @@ html, body {
     display: block;
 }
 
-
-
 .drawer-email {
     text-align: center;
+}
+
+.drawer-email p {
+    margin: 0;
 }
 
 /************/
 /*Navigation*/
 /************/
+#navigation {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+
+#navigation .mdl-navigation__link {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+}
+
+#navigation .mdl-navigation__link:hover {
+    background-color: #00BCD4;
+    color: #37474F;
+}
+
+#navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-right: 32px;
+}
 
 /*********/
 /*Content*/
@@ -172,55 +216,8 @@ html, body {
     max-width: 100%;
 }
 
-#layoutWrapper #header .mdl-textfield {
-    padding-top: 27px;
-}
-
-#layoutWrapper .mdl-layout__header .mdl-layout__drawer-button {
-    color: rgba(0, 0, 0, 0.54);
-}
-
-.mdl-layout__drawer .avatar {
-    margin-bottom: 16px;
-}
-
 .mdl-data-table th:first-of-type {
     text-align: left;
-}
-
-#navigation {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
-}
-
-#layoutWrapper #navigation .mdl-navigation__link {
-    display: -webkit-box !important;
-    display: -webkit-flex !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.56);
-    font-weight: 500;
-}
-
-#layoutWrapper #navigation .mdl-navigation__link:hover {
-    background-color: #00BCD4;
-    color: #37474F;
-}
-
-#navigation .mdl-navigation__link .material-icons {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.56);
-    margin-right: 32px;
 }
 
 .content-card {

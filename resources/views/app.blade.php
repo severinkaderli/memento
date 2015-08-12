@@ -37,9 +37,14 @@
                 <header class="drawer-header">
                     <img id="logo" src="{{URL::asset('images/memento.png')}}" alt="Logo">
                     <div class="drawer-email">
+                        <p>
                         @if(Auth::check())
+                            Your are logged in as<br>
                             {{Auth::user() -> email}}
+                        @else
+                            &nbsp;
                         @endif
+                        </p>
                     </div>
                 </header>
                 <!-- Drawer END -->
