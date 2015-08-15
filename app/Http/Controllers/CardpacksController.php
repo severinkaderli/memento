@@ -147,21 +147,23 @@ class CardpacksController extends Controller
      */
     public function export($id)
     {
-        //TODO: Better name for output file
         $cardpack = Cardpack::findOrFail($id);
         if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
         }
-        $cards = $cardpack -> cards()->get();
+        $cards = $cardpack->cards()->get();
 
         $output = "";
-        foreach($cards as $card) {
+        foreach ($cards as $card) {
             $output .= implode(",", [$card->frontside, $card->backside]) . PHP_EOL;
         }
 
+        //Get name for output file
+        $filename = str_limit(str_replace(' ', '_', $cardpack->title), 32, '');
+
         $headers = [
             "Content-Type" => 'text/csv',
-            "Content-Disposition" => 'attachment; filename="export.csv"'
+            "Content-Disposition" => 'attachment; filename="' . $filename . '.csv"'
         ];
 
         return Response($output, 200, $headers);
