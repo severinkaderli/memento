@@ -9,7 +9,8 @@
                 {{$card->frontside}}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip Card</a>
+                <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip
+                    Card</a>
             </div>
         </div>
         <!--Backside-->
@@ -21,7 +22,8 @@
                 {{$card->backside}}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip Card</a>
+                <a class="flipCardTrigger mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Flip
+                    Card</a>
                 <a id="nextCard"
                    data-cardNumber="{{$cardnumber}}"
                    data-finished="{{implode(',', $finished)}}"
