@@ -90,4 +90,28 @@
             {!! Form::close() !!}
         </div>
     </div>
+
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Changelog</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <h5>v0.5.1-alpha</h5>
+            <ul>
+                <li>Export filename</li>
+                <li>Added changelog to home page</li>
+            </ul>
+            <h5>v0.5-alpha</h5>
+            <ul>
+                <li>CSS-Cleanup</li>
+                <li>Added logo</li>
+            </ul>
+            <h5>v0.4-alpha</h5>
+            <ul>
+                <li>Added about page</li>
+                <li>Changes to README.md</li>
+                <li>Added LICENSE</li>
+            </ul>
+        </div>
+    </div>
 @stop

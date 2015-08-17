@@ -54,19 +54,19 @@
         <nav id="navigation" class="mdl-navigation mdl-color--blue-grey-800">
             @if(!Auth::check())
                 <a class="mdl-navigation__link" href="{{url('/')}}"><i
-                            class="mdl-color-text--blue-grey-400 material-icons">people</i>Home</a>
+                            class="mdl-color-text--white material-icons">people</i>Home</a>
             @else
                 <a class="mdl-navigation__link" href="{{url('cardpacks')}}"><i
-                            class="mdl-color-text--blue-grey-400 material-icons">dashboard</i>Cardpacks</a>
+                            class="mdl-color-text--white material-icons">dashboard</i>Cardpacks</a>
                 <a class="mdl-navigation__link" href="{{url('logout')}}"><i
-                            class="mdl-color-text--blue-grey-400 material-icons">people</i>Logout</a>
+                            class="mdl-color-text--white material-icons">people</i>Logout</a>
             @endif
             <div class="mdl-layout-spacer"></div>
             <a class="mdl-navigation__link" href="{{url('about')}}"><i
-                        class="mdl-color-text--blue-grey-400 material-icons">help</i>About</a>
+                        class="mdl-color-text--white material-icons">help</i>About</a>
             <!-- Footer -->
             <div id="footer">
-                <p>v0.4-alpha<br>&copy;2015 Severin Kaderli</p>
+                <p>v0.5.1-alpha<br>&copy;2015 Severin Kaderli</p>
             </div>
             <!-- Footer -->
         </nav>

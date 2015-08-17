@@ -63,13 +63,13 @@ html, body {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    color: rgba(255, 255, 255, 0.56);
+    color: #FFF;
     font-weight: 500;
 }
 
 #navigation .mdl-navigation__link:hover {
-    background-color: #00BCD4;
-    color: #37474F;
+    background-color: rgb(68,138,255);
+    color: #FFF;
 }
 
 #navigation .mdl-navigation__link .material-icons {
