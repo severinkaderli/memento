@@ -20,6 +20,5 @@ The current version of memento can be accessed via the following link:
 * More details coming soon...
 
 ## Todo
-* Update MDL to v1.0.4
 * Handling learning with session
 * Public API
