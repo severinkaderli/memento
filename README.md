@@ -20,5 +20,10 @@ The current version of memento can be accessed via the following link:
 * More details coming soon...
 
 ## Todo
+* Form validation * styling
+* Import settings (Delimiter)
+* Import with ajax
+* User-Settings (password, delete account)
+* SRS learning etc...
 * Handling learning with session
 * Public API
