@@ -22,3 +22,4 @@ The current version of memento can be accessed via the following link:
 ## Todo
 * Handling learning with session
 * Public API
+* Better frontend
