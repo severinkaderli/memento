@@ -27,4 +27,4 @@ The current version of memento can be accessed via the following link:
 * SRS learning etc...
 * Handling learning with session
 * Public API
-* Better frontend
+* Better frontend -> using simplex-css
