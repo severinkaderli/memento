@@ -20,7 +20,6 @@ The current version of memento can be accessed via the following link:
 * More details coming soon...
 
 ## Todo
-* Form validation * styling
 * Splitting up of the template files (Header, Nav, Footer etc.)
 * Import settings (Delimiter)
 * Import with ajax
@@ -28,4 +27,4 @@ The current version of memento can be accessed via the following link:
 * SRS learning etc...
 * Handling learning with session
 * Public API
-* Better frontend -> using simplex-css
+* Frontend rewrite -> using simplex-css
