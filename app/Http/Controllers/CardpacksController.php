@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-
-use Auth;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Cardpack;
 use App\Card;
+use App\Cardpack;
+use App\Http\Requests;
+use Auth;
 use Input;
+use Request;
 
 class CardpacksController extends Controller
 {
@@ -54,13 +52,15 @@ class CardpacksController extends Controller
     }
 
     /**
-     * Stores a new cardpack in the database
-     *
+     * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store()
+    public function store(\Illuminate\Http\Request $request)
     {
-
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required'
+        ]);
         $cardpack = new Cardpack(Request::all());
         Auth::user()->cardpacks()->save($cardpack);
         return redirect('cardpacks');
@@ -68,7 +68,7 @@ class CardpacksController extends Controller
 
     /**
      * @param $id
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function edit($id)
     {
@@ -81,10 +81,17 @@ class CardpacksController extends Controller
 
     /**
      * @param $id
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update($id, \Illuminate\Http\Request $request)
     {
+
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required'
+        ]);
+
         $cardpack = Cardpack::findOrFail($id);
         if ($cardpack->user->id != Auth::id()) {
             return redirect('cardpacks');
@@ -185,6 +192,7 @@ class CardpacksController extends Controller
         return view('cards._table', compact('cardpack'));
     }
 
+    //TODO: Update this function to use sessions
     public function learn($id)
     {
         $cardpack = Cardpack::findOrFail($id);
