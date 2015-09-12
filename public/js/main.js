@@ -1,7 +1,7 @@
 //Base URL for Ajax calls
-var memento = {
+/*var memento = {
 	baseUrl: $('base').attr('href') + "/";
-}
+}*/
 var baseURL = $('base').attr('href') + "/";
 
 //Ajax Setup to send the CSRF-token

@@ -106,6 +106,14 @@ html, body {
     justify-content: center;
 }
 
+/********/
+/*Errors*/
+/********/
+.error-list {
+    width: 100%;
+    color: red;
+}
+
 /*******/
 /*Cards*/
 /*******/

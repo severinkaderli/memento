@@ -6,10 +6,12 @@
 
 @section('content')
 	<!-- Login card -->
+    @include('errors._list')
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Login</h2>
         </div>
+
         <div class="mdl-card__supporting-text">
             {!! Form::open(['url' => 'login'])!!}
 
@@ -47,6 +49,7 @@
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Register</h2>
         </div>
+
         <div class="mdl-card__supporting-text">
             {!! Form::open(['url' => 'register'])!!}
 
