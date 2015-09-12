@@ -21,10 +21,11 @@ The current version of memento can be accessed via the following link:
 
 ## Todo
 * Form validation * styling
+* Splitting up of the template files (Header, Nav, Footer etc.)
 * Import settings (Delimiter)
 * Import with ajax
 * User-Settings (password, delete account)
 * SRS learning etc...
 * Handling learning with session
 * Public API
-* Better frontend
+* Better frontend -> using simplex-css
