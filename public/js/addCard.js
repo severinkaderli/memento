@@ -25,6 +25,24 @@ $('#addCardForm').submit(function(e){
             $(".card-row").change(function() {
                 checkCards();
             });
+        },
+        error: function(data) {
+
+            //Get error message
+            var htmlErrors = '<div id="cardsTable" class="error-list"><ul>';
+            $.each(data.responseJSON, function(key, value){
+                htmlErrors += "<li>" + value + "</li>"
+                console.log(value);
+            });
+            htmlErrors += '</ul></div>';
+
+            $('#loadingSpinner').replaceWith(htmlErrors);
+            componentHandler.upgradeDom();
+            $('#frontside').focus();
+            checkCards();
+            $(".card-row").change(function() {
+                checkCards();
+            });
         }
     }, "json");
 });
