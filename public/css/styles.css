@@ -110,8 +110,18 @@ html, body {
 /*Errors*/
 /********/
 .error-list {
-    width: 100%;
-    color: red;
+    width: calc(100% - 10px);
+    margin: 0 auto;
+    color: #D8000C;
+    border: 1px solid #D8000C;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #FFBABA url(../images/error.png?v=1) 10px center no-repeat;
+}
+
+.error-list ul {
+    list-style: none;
+    padding: 0 0 0 50px;
 }
 
 /*******/
