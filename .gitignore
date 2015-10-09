@@ -1,5 +1,76 @@
-/vendor
-/.idea
-/node_modules
-Homestead.yaml
+# OS specific
+ehthumbs.db
+Thumbs.db
+.DS_Store
+Desktop.ini
+*.lnk
+
+
+# Compiled / Installer
+bin/
+build/
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Archives 
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Composer
+vendor/
+composer.lock
+composer.phar
+
+# Gulp
+node_modules/
+.sass-cache/
+gulp-cache/
+
+# Bower
+bower_components/
+
+# Temporary / Backup
+tmp/
+*.tmp
+*.bak
+*.swp
+$RECYCLE.BIN/
+
+# IDE / Framework specific
+.idea/
+_ide_helper.php
 .env
+.env.php
+.env.*.php
+/bootstrap/compiled.php
+Homestead.yaml
+*.pydevproject
+.metadata
+.gradle
+local.properties
+.settings/
+.loadpath
+.project
+.externalToolBuilders/
+*.launch
+.cproject
+.classpath
+.factorypath
+.buildpath
+.target
+.texlipse
+.recommenders/
