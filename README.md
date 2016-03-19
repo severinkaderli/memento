@@ -18,13 +18,3 @@ The current version of memento can be accessed via the following link:
 ### Install instructions
 * Download and upload files to web-server
 * More details coming soon...
-
-## Todo
-* Splitting up of the template files (Header, Nav, Footer etc.)
-* Import settings (Delimiter)
-* Import with ajax
-* User-Settings (password, delete account)
-* SRS learning etc...
-* Handling learning with session
-* Public API
-* Frontend rewrite -> using simplex-css
