@@ -16,5 +16,5 @@ The current version of memento can be accessed via the following link:
 * Card-learning
 
 ### Install instructions
-* Download and upload files to web-server
-* More details coming soon...
+* git clone
+* ...
