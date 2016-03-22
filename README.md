@@ -18,3 +18,4 @@ The current version of memento can be accessed via the following link:
 ### Install instructions
 * git clone
 * composer install
+* php artisan migrate
