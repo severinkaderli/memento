@@ -19,3 +19,4 @@ The current version of memento can be accessed via the following link:
 * git clone
 * composer install
 * php artisan migrate
+* Copy.env.example to .env
