@@ -20,3 +20,4 @@ The current version of memento can be accessed via the following link:
 * composer install
 * php artisan migrate
 * Copy.env.example to .env
+* bower install
