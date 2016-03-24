@@ -21,3 +21,5 @@ The current version of memento can be accessed via the following link:
 * php artisan migrate
 * Copy.env.example to .env
 * bower install
+* npm install
+* gulp build
