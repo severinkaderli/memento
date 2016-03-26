@@ -15,6 +15,10 @@ The current version of memento can be accessed via the following link:
 * CSV-Import and CSV-Export for cards
 * Card-learning
 
+###TODO
+* Using bower for libraries
+* Using a gulp file to minimize everything
+
 ### Install instructions
 * git clone
 * composer install
