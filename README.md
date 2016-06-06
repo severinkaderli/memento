@@ -18,6 +18,7 @@ The current version of memento can be accessed via the following link:
 ###TODO
 * Using bower for libraries
 * Using a gulp file to minimize everything
+* Updating dependencies
 
 ### Install instructions
 * git clone
